@@ -1,0 +1,232 @@
+-- CREATE DATABASE - CRIA UM BANCO
+CREATE DATABASE bercario;
+
+-- DROP DATABASE - DELETA UM BANCO
+DROP DATABASE bercario;
+
+-- USE - UTILIZA UM BANCO PAA REALIZAR AS OPERAÇÕES
+USE bercario;
+
+-- PRIMARY KEY - DIZ QUE AQUELE ATRIBUTO É CHAVE PRIMARIA
+-- AUTO_INCREMENT - DIZ QUE AQUELE ATRIBUTO AUMENTA O NÚMERO AUTOMTICAMENTE
+-- NOT NULL - DIZ QUE AQUELE ATRIBUTO DEVE SER PREENCHIDO, NÃO PODE ESTAR VAZIO
+-- UNIQUE - DIZ QUE SÓ PODE TER UM DAQUELE REGISTRO NA TABELA
+-- CREATE TABLE - CRIA UMA TABELA NO BANCO
+CREATE TABLE tb_mae(
+	cod_mae INT PRIMARY KEY AUTO_INCREMENT,
+    nome_mae VARCHAR(255) NOT NULL,
+    telefone_mae VARCHAR(20),
+    email_mae VARCHAR(255) UNIQUE
+);
+
+SELECT * FROM tb_mae;
+
+CREATE TABLE tb_medico(
+	cod_medico INT PRIMARY KEY AUTO_INCREMENT,
+    nome_medico VARCHAR(255) NOT NULL,
+    crm VARCHAR(20) DEFAULT '123456-ES'
+);
+
+SELECT * FROM tb_medico;
+
+-- ALTER - ALTERA ALGO EXISTENTE NO BANCO
+-- ADD - ADICIONA COLUNAS A UMA TABELA EXISTENTE
+ALTER TABLE tb_medico
+ADD especialidade ENUM("GERAL","PEDIATRA","OBSTETRA");
+
+-- DROP COLUMN - DELETA UMA COLUNA DE UMA TABELA EXISTENTE
+ALTER TABLE tb_medico
+DROP COLUMN especialidade;
+
+-- MODIFY - MODIFICA UMA COLUNA DE UMA TABELA EXISTENTE
+ALTER TABLE tb_medico
+MODIFY COLUMN especialidade VARCHAR(255);
+
+-- DROP TABLE - DELETA UMA TABELA
+DROP TABLE tb_medico;
+
+ CREATE TABLE tb_bebe(
+	cod_bebe INT PRIMARY KEY AUTO_INCREMENT,
+    nome_bebe VARCHAR(255) NOT NULL,
+    dt_nasc DATE,
+    hr_nasc time,
+    peso DECIMAL(6,4),
+    id_mae INT,
+    id_medico INT,
+    -- REFERENCIANDO AS CHAVES ESTRANGEIRAS
+    FOREIGN KEY (id_mae) REFERENCES tb_mae(cod_mae),
+    FOREIGN KEY (id_medico) REFERENCES tb_medico(cod_medico)
+);
+
+SELECT * FROM tb_bebe;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
