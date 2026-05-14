@@ -4,12 +4,9 @@ USE livraria;
 
 SELECT * FROM autores;
 
-
 SELECT * FROM generos;
 
-
 SELECT * FROM livros;
-
 
 -- INNER JOIN
 SELECT *
